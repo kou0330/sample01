@@ -1,0 +1,276 @@
+$base-color: rgb(108, 198, 196);
+$base-back-color: #F6F6F6;
+$base-margin: 20px;
+
+body {
+    background-color: $base-back-color;
+    border-top: solid 8px $base-color;
+    font-family:  Verdana,Arial,Helvetica,'meirio','メイリオ','Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4',Osaka,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+.container {
+    width: 920px;
+    margin: 0 auto;
+}
+
+header {
+    // background-color: #fff;;
+    display: flex;
+    justify-content: space-between;
+    height: 128px;
+    align-items: center;
+    
+    // .header-logo {
+    //     align-self: center;
+    //     height: 100%;
+    //     position: relative;
+    //     img {
+    //         display: block;
+    //         position: absolute;
+    //         top: 39%;
+    //         transform: translateY(-50%);
+    //     }
+    // }
+    .header-info {
+        height: 100%;
+        color: #515151;
+        p {
+            font-size: 10px;
+            &.catchcopy {
+                padding: 12px 0;
+            }
+            &.reserve-detail {
+                border: solid 1px #d6d6d6;
+                padding: 8px 19px;
+                span {
+                    color: #b22c00;
+                }
+            }
+        }
+        .tel {
+            padding: 10px 0;
+            font-size: 25px;
+            img {
+                padding-right: 3px;
+            }
+        }
+    }
+}
+
+nav {
+
+    ul {
+        display: flex;
+        border: solid 1px darken($base-color, 10%);
+        border-radius: 5px;
+        height: 72px;
+        // background-color: $base-color;
+        background-image: linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+        color: #fff;
+        font-weight: bold;
+        li {
+            width: 20%;
+            text-align: center;
+            a {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                border-right: solid 1px darken($base-color, 10%);
+                &:last-child() {
+                    border-right: none; //右端の要素だけキャンセル
+                }
+                &:hover {
+                    background-color: darken($base-color, 10%);
+                }
+                h1 {
+                    font-size: 14px;
+                }
+                p {
+                    margin-top: 4px;
+                    font-size: 10px;
+                }
+                
+
+            }
+        }
+    }
+}
+
+main {
+    margin-top: $base-margin;
+    display: flex;
+    flex-direction: row-reverse;
+
+    .side-menu {
+        width: 280px;
+        margin-right: $base-margin;
+        box-sizing: border-box;
+        
+        ul {
+            border: 1px solid $base-color;
+            margin-bottom: $base-margin;
+            padding-bottom: $base-margin;
+            background: #fff;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            li {
+                margin: 0 12px;
+                border-bottom: 1px solid $base-color;
+                height: 42px;
+                line-height: 42px;
+               
+                //↓ひし形リスト作成用
+                position:relative;
+                padding-left:25px;
+                &:after {
+                    content:'';
+                    display:block; 
+                    position:absolute; 
+                    background:$base-color;
+                    width:7px;
+                    height:7px; 
+                    top:16px; 
+                    left:5px; 
+                    transform:rotate(-45deg);
+                    -webkit-transform:rotate(-45deg);
+                    -o-transform:rotate(-45deg);
+                }
+                //↑ひし形リスト作成用
+
+                a {
+                    // background: pink;
+                    display: block;
+                    height: 100%;
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #595959;
+                    &:hover {
+                        color: $base-color;
+                    }
+                }
+
+                &:first-child {
+                    background-image: linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+                    margin: 0;
+                    padding-left: 15px;
+                    //2回目書かないと背景が合わない。なんで？
+                    border-top-left-radius: 6px;
+                    border-top-right-radius: 6px;
+                    color: #fff;
+                    font-weight: bold;
+                    &:after {
+                        content: '';
+                        width: 0;
+                        height: 0;
+                    }
+                }
+                // &:last-child {
+                //     &:after {
+                //         content: '';
+                //     }
+                // }
+            }
+        }
+        
+    }
+    
+    .main-contents {
+        width: 640px;
+        .news{
+            margin-top: 6px;
+            padding: $base-margin;
+            background-color: #fff;
+            color: #515151;
+            
+            h1 {
+                padding-top: 16px;
+                padding-bottom: 16px;
+                margin-bottom: 16px;
+                border-bottom: solid 3px $base-color;
+                font-weight: bold;
+                box-sizing: border-box;
+            }
+
+            ul {
+                // background-color: #fbf;
+                padding-bottom: $base-margin;
+                font-size: 13px;
+                li  {
+                    // background-color: #fef;
+                    display: flex;
+                    margin: 0 10px;
+                    padding: 10px 0;
+                    border-bottom: dotted 1px #cfcccc;
+                    h2 {
+                        // width: 268px;
+                        
+                        font-weight: bold;
+                        padding-right: 30px;
+                        width: 25%;
+                        line-height: 1.8;
+                    }
+                    p {
+                        line-height: 1.5;
+                        width: 75%;
+                    }
+                }
+            }
+        }
+    }
+    
+
+
+}
+
+
+footer {
+    margin-top: $base-margin;
+    color: #515151;
+    font-size: 13px;
+    .low-menu {
+        background-color: $base-color;
+        color: #fff;
+        border-radius: 5px;
+        height: 30px;
+        ul {
+            li {
+                padding-left: 15px;
+                font-size: 13px;
+                display: inline-block;
+                &::before {
+                    content: "○";
+                    font-size: 24px;
+                    font-weight: bold;
+                    padding-right: 10px;
+                }
+                a {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+            }
+
+        }
+    }
+    .footer-info {
+        padding-top: $base-margin;
+        padding-bottom: $base-margin;
+        width: 100%;
+        border-bottom: solid 2px $base-color;
+        text-align: right;
+    }
+    .copyright {
+        padding-top: 14px;
+        padding-bottom: $base-margin;
+        text-align: center;
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 770px) {
+
+}
